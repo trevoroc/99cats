@@ -20,12 +20,15 @@ class Cat < ActiveRecord::Base
   validates :color, inclusion: { in: COLORS }
   validates :sex, inclusion: { in: %w(M F) }
 
+  has_many :cat_rental_requests, dependent: :destroy
+
+  def self.colors
+    COLORS
+  end
+
   def age
     age_in_days = (Time.now.to_date - birth_date).to_i
     age_in_days / 365
   end
 
-  def self.colors
-    COLORS
-  end
 end
