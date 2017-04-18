@@ -19,6 +19,22 @@ class CatsController < ApplicationController
   end
 
   def create
-    render json: params
+    @cat = Cat.new(cat_params)
+    if @cat.save
+      redirect_to cat_url(@cat.id)
+    else
+      render :new
+    end
+  end
+
+  # def edit
+  #
+  # end
+
+  private
+
+  def cat_params
+    params.require(:cat).permit(:name, :birth_date, :color, :sex,
+                                :description)
   end
 end
