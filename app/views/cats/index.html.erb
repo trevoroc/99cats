@@ -3,14 +3,10 @@
   <section>
     <ul>
       <% @cats.each do |cat| %>
-        <li>
-          <%= "#{cat.name}, age: #{cat.age} year(s)" %>
-          <a href="<%= cat_url(cat.id) %>">Details</a>
-        </li>
+          <%= render cat %>
       <% end %>
-
-      <br>
-
-      <%= link_to "Add new cat", new_cat_url %>
     </ul>
+    <br>
+
+    <%= link_to "Add new cat", new_cat_url %>
   </section>

@@ -1,21 +1,23 @@
 <h1><%= @cat.name %>'s Page</h1>
 
-  <table>
-    <tr>
-      <th>Name</th>
-      <th>Color</th>
-      <th>Sex</th>
-      <th>Age</th>
-      <th>Description</th>
-    </tr>
-    <tr>
-      <td><%= @cat.name %></td>
-      <td><%= @cat.color %></td>
-      <td><%= @cat.sex %></td>
-      <td><%= @cat.age %></td>
-      <td><%= @cat.description %></td>
-    </tr>
-  </table>
+  <section>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Color</th>
+        <th>Sex</th>
+        <th>Age</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td><%= @cat.name %></td>
+        <td><%= @cat.color %></td>
+        <td><%= @cat.sex %></td>
+        <td><%= @cat.age %></td>
+        <td><%= @cat.description %></td>
+      </tr>
+    </table>
+  </section>
 
   <%= link_to "Cats Home", cats_url %>
   <%= link_to "Edit #{@cat.name}", edit_cat_url(@cat.id) %>
