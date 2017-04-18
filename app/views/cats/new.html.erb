@@ -1,6 +1,8 @@
 <h1>Add a new cat!</h1>
 
-  <section>
+<%= render "form", cat: @cat, action: :new %>
+
+  <!-- <section>
     <form action="<%= cats_url %>" method="post">
       <label for="name">Cat Name</label>
       <input type="text" id="name" name="cat[name]">
@@ -41,4 +43,4 @@
 
       <input type="submit" name="" value="Add cat!">
     </form>
-  </section>
+  </section> -->
