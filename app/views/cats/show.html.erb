@@ -16,3 +16,6 @@
       <td><%= @cat.description %></td>
     </tr>
   </table>
+
+  <%= link_to "Cats Home", cats_url %>
+  <%= link_to "Edit #{@cat.name}", edit_cat_url(@cat.id) %>
