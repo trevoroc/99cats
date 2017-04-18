@@ -21,6 +21,7 @@ class Cat < ActiveRecord::Base
   validates :sex, inclusion: { in: %w(M F) }
 
   def age
-    (Time.now.to_date - birth_date) / 365
+    age_in_days = (Time.now.to_date - birth_date).to_i
+    age_in_days / 365
   end
 end
