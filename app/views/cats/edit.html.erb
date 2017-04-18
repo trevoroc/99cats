@@ -1,45 +1,50 @@
 <h1>Edit <%= @cat.name %>!</h1>
 
   <section>
-    <form action="<%= cats_url %>" method="post">
+    <form action="<%= cat_url %>" method="post">
+      <input type="hidden" name="_method" value="PATCH">
       <label for="name">Cat Name</label>
-      <input type="text" id="name" name="cat[name]">
+      <input type="text" id="name" name="cat[name]" value="<%= @cat.name %>">
 
       <br>
       <br>
 
       <label for="birth_date">Cat Birthday</label>
-      <input type="date" id ="birth_date" name="cat[birth_date]">
+      <input type="date" id ="birth_date" name="cat[birth_date]" value="<%= @cat.birth_date %>">
 
       <br>
       <br>
 
       <label for="color">Cat Color</label>
       <select id="color" name="cat[color]">
-        <option disabled selected>Select Cat Color</option>
-        <option value="black">Black</option>
-        <option value="white">White</option>
-        <option value="orange">Orange</option>
-        <option value="grey">Grey</option>
+        <option disabled>Select Cat Color</option>
+        <option value="black" <%= @cat.color == "black" ? "selected" : "" %>>Black</option>
+        <option value="white" <%= @cat.color == "white" ? "selected" : "" %>>White</option>
+        <option value="orange" <%= @cat.color == "orange" ? "selected" : "" %>>Orange</option>
+        <option value="grey" <%= @cat.color == "grey" ? "selected" : "" %>>Grey</option>
       </select>
 
       <br>
       <br>
 
       <label for="sex">Sex</label>
-      M<input type="radio" name="cat[sex]" value="M">
-      F<input type="radio" name="cat[sex]" value="F">
+      M<input type="radio" name="cat[sex]" value="M" <%= @cat.sex == "M" ? "checked" : "" %>>
+      F<input type="radio" name="cat[sex]" value="F" <%= @cat.sex == "F" ? "checked" : "" %>>
 
       <br>
       <br>
 
       <label for="description">Description
-        <textarea id="description" name="cat[description]" cols="30" rows="10"></textarea>
+        <textarea
+        id="description"
+        name="cat[description]"
+        cols="30"
+        rows="10"><%= @cat.description %></textarea>
       </label>
 
       <br>
       <br>
 
-      <input type="submit" name="" value="Add cat!">
+      <input type="submit" name="" value="Update <%= @cat.name %>!">
     </form>
   </section>
