@@ -18,10 +18,10 @@
       <label for="color">Cat Color</label>
       <select id="color" name="cat[color]">
         <option disabled>Select Cat Color</option>
-        <option value="black" <%= @cat.color == "black" ? "selected" : "" %>>Black</option>
-        <option value="white" <%= @cat.color == "white" ? "selected" : "" %>>White</option>
-        <option value="orange" <%= @cat.color == "orange" ? "selected" : "" %>>Orange</option>
-        <option value="grey" <%= @cat.color == "grey" ? "selected" : "" %>>Grey</option>
+        <% Cat.colors.each do |color| %>
+          <option value="<%= color %>"
+            <%= @cat.color == color ? "selected" : "" %>><%= color.capitalize %></option>
+        <% end %>
       </select>
 
       <br>

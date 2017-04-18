@@ -24,4 +24,8 @@ class Cat < ActiveRecord::Base
     age_in_days = (Time.now.to_date - birth_date).to_i
     age_in_days / 365
   end
+
+  def self.colors
+    COLORS
+  end
 end
