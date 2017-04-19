@@ -6,9 +6,12 @@ class CatRentalRequest < ActiveRecord::Base
   belongs_to :cat
 
   def does_not_overlap_approved_request
-    unless overlapping_approved_requests.empty?
+    # unless overlapping_approved_requests.empty?
+    #   errors[:base] << "Cannot overlap with approved rental request"
+    # end
+    if overlapping_approved_requests.exists?
       errors[:base] << "Cannot overlap with approved rental request"
-    end
+    end    
   end
 
   private
@@ -21,8 +24,9 @@ class CatRentalRequest < ActiveRecord::Base
   end
 
   def overlapping_approved_requests
-    overlapping_requests.select do |request|
-      request.status == "APPROVED"
-    end
+    # overlapping_requests.select do |request|
+    #   request.status == "APPROVED"
+    # end
+    overlapping_requests.where(status: "APPROVED")
   end
 end
