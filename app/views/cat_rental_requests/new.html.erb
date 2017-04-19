@@ -5,12 +5,22 @@
   <form action="<%= cat_rental_requests_url %>" method="post">
 
     <label for="cat">Choose a cat to rent: </label>
-    <select id="cat" name="cat[cat_id]">
+    <select id="cat" name="rental[cat_id]">
       <option selected disabled>Select a Cat</option>
       <% @cats.each do |cat| %>
         <option value="<%= cat.id %>"><%= cat.name %></option>
       <% end %>
     </select>
+
+    <br>
+
+    <label for="start_date">Start Date</label>
+    <input type="date" id ="start_date" name="rental[start_date]">
+
+    <br>
+
+    <label for="end_date">End Date</label>
+    <input type="date" id ="end_date" name="rental[end_date]">
 
     <br>
 

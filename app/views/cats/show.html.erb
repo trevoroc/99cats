@@ -1,6 +1,9 @@
 <h1><%= @cat.name %>'s Page</h1>
 
   <section>
+
+    <h2>Bio</h2>
+
     <table>
       <tr>
         <th>Name</th>
@@ -18,6 +21,28 @@
       </tr>
     </table>
   </section>
+
+  <br>
+
+  <section>
+
+    <h2>Rental Reservations</h2>
+
+    <table>
+      <tr>
+        <th>Start Date</th>
+        <th>End Date</th>
+      </tr>
+      <% @cat.cat_rental_requests.order("start_date").each do |request| %>
+        <tr>
+          <td><%= request.start_date %></td>
+          <td><%= request.end_date %></td>
+        </tr>
+      <% end %>
+    </table>
+  </section>
+
+  <br>
 
   <%= link_to "Cats Home", cats_url %>
   <%= link_to "Edit #{@cat.name}", edit_cat_url(@cat.id) %>
